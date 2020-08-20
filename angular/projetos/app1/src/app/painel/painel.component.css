@@ -1,0 +1,34 @@
+.container{
+    margin:50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.item-container{
+    width: 50%;
+}
+.item-container2{
+    width: 100%;
+}
+.cx-traducao{
+    width: 100%;
+}
+.btn-translate{
+    right: 10px;
+    bottom: 10px;
+    position: absolute; 
+}
+.tentativas{
+    display: flex;
+    justify-content: flex-end;
+}
+@media only screen and (max-width:560px){
+    .container{
+        margin:50px;
+        display: flex;
+        flex-direction:column;
+    }
+    .item-container{
+        width: 100%;
+    }
+}

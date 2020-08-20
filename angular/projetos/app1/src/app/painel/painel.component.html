@@ -1,0 +1,21 @@
+
+
+
+
+<mat-card class="container">
+    <div class="item-container"><app-progresso [progresso]="progresso"></app-progresso></div>
+    <div class="item-container tentativas"><app-tentativas [tentativas]="tentativas"></app-tentativas></div>
+    <div class="item-container2"> 
+        <h6>{{ instrucao }}</h6>
+        <p>{{ rodadaFrase.fraseEng }}</p>
+
+        <mat-form-field class="cx-traducao">
+            <mat-label>Insira o texto a traduzir</mat-label>
+            <input matInput type="text" (input)="attResposta($event)" [value]="resposta">
+            <button (click)="verificarResposta()" class="btn-translate" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                <mat-icon>g_translate</mat-icon>
+              </button>
+          </mat-form-field>
+
+    </div>
+</mat-card>
