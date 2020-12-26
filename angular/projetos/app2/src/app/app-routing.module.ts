@@ -1,3 +1,4 @@
+import { OfertaComponent } from './layout/oferta/oferta.component';
 import { DiversaoComponent } from './layout/diversao/diversao.component';
 import { RestaurantesComponent } from './layout/restaurantes/restaurantes.component';
 import { NavComponent } from './layout/nav/nav.component';
@@ -8,6 +9,8 @@ const routes: Routes = [
   { path: '', component: NavComponent},
   { path: 'restaurantes', component: RestaurantesComponent},
   { path: 'diversao', component: DiversaoComponent},
+  { path: 'oferta', component: NavComponent},
+  { path: 'oferta/:id/:subId', component: OfertaComponent},
 ];
 
 @NgModule({
