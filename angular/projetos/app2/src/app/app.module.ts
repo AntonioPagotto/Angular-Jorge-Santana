@@ -8,13 +8,17 @@ import { NavComponent } from './layout/nav/nav.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { RestaurantesComponent } from './layout/nav/restaurantes/restaurantes.component';
+import { DiversaoComponent } from './layout/nav/diversao/diversao.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     NavComponent,
-    FooterComponent
+    FooterComponent,
+    RestaurantesComponent,
+    DiversaoComponent
   ],
   imports: [
     BrowserModule,
