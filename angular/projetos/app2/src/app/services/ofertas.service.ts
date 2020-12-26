@@ -12,8 +12,12 @@ export class OfertasService {
         private http: HttpClient
     ) { }
 
-    public getOfertas() {
+    getOfertas() {
         return this.http.get<Promise<Oferta[]>>(`${URL}/ofertas?destaque=true`).toPromise().then((res)=>res)
+    }
+
+    getOfertasPorCategoria(categoria: string){
+        return this.http.get<Promise<Oferta[]>>(`${URL}/ofertas?categoria=${categoria}`).toPromise().then((res)=>res)
     }
 
 }
