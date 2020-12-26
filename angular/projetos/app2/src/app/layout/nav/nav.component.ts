@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css'],
-  providers: [ OfertasService ]
+  providers: [OfertasService]
 })
 export class NavComponent implements OnInit {
 
@@ -17,7 +17,13 @@ export class NavComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.ofertas = this.ofertasService.getOfertas()
-    }
+    this.ofertasService.getOfertas()
+      .then((ofertas) => {
+        this.ofertas = ofertas;
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
 
 }
