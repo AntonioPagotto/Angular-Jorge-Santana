@@ -1,5 +1,6 @@
 <div class="container">
-  <div class="oferta">
+  <!-- aqui declaramos que a oferta só será exibida quando o dado chegar, para não termos erros de assincronismo... -->
+  <div class="oferta" *ngIf="oferta !== undefined">
     <div class="row">
       <div class="col">
         <h4>{{oferta.titulo}}</h4>
@@ -13,9 +14,7 @@
         </div>
 
         <div class="thumbnails">
-          <img [src]="oferta.imagens[1].url" />
-          <img [src]="oferta.imagens[2].url" />
-          <img [src]="oferta.imagens[3].url" />
+          <img *ngFor="let img of oferta.imagens" [src]="img.url" />
         </div>
       </div>
 
