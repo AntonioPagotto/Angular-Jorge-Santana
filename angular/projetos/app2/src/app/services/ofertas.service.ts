@@ -20,4 +20,8 @@ export class OfertasService {
         return this.http.get<Promise<Oferta[]>>(`${URL}/ofertas?categoria=${categoria}`).toPromise().then((res)=>res)
     }
 
+    getOfertaById(id: number){
+        return this.http.get<Promise<Oferta>>(`${URL}/ofertas?id=${id}`).toPromise().then((res) => res[0]);
+    }
+
 }
