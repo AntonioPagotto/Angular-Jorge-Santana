@@ -10,11 +10,11 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { NavComponent } from './layout/nav/nav.component';
 import { FooterComponent } from './layout/footer/footer.component';
-import { DiversaoComponent } from './layout/diversao/diversao.component';
-import { RestaurantesComponent } from './layout/restaurantes/restaurantes.component';
-import { OfertaComponent } from './layout/oferta/oferta.component';
-import { ComoUsarComponent } from './layout/oferta/como-usar/como-usar.component';
-import { OndeFicaComponent } from './layout/oferta/onde-fica/onde-fica.component';
+import { DiversaoComponent } from './layout/pages/diversao/diversao.component';
+import { RestaurantesComponent } from './layout/pages/restaurantes/restaurantes.component';
+import { OfertaComponent } from './layout/pages/oferta/oferta.component';
+import { ComoUsarComponent } from './layout/pages/oferta/como-usar/como-usar.component';
+import { OndeFicaComponent } from './layout/pages/oferta/onde-fica/onde-fica.component';
 
 @NgModule({
   declarations: [

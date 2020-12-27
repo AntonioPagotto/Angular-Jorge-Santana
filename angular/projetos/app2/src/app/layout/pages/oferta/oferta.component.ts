@@ -1,5 +1,5 @@
-import { OfertasService } from './../../services/ofertas.service';
-import { Oferta } from './../../models/oferta.model';
+import { OfertasService } from '../../../services/ofertas.service';
+import { Oferta } from '../../../models/oferta.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   selector: 'app-oferta',
   templateUrl: './oferta.component.html',
   styleUrls: ['./oferta.component.css'],
-  providers: [ OfertasService ]
+  providers: [OfertasService]
 })
 export class OfertaComponent implements OnInit {
 
@@ -16,7 +16,7 @@ export class OfertaComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private ofertaService: OfertasService
-    ) { 
+  ) {
     this.route = route;
   }
 
@@ -35,6 +35,11 @@ export class OfertaComponent implements OnInit {
 
     this.ofertaService.getOfertaById(this.route.snapshot.params['id'])
       .then((oferta) => this.oferta = oferta)
+
+    this.route.params.subscribe(
+      (param) => console.log(param.id)),
+      (err) => console.log(err),
+      () => console.log('Fim!')
   }
 
 }
