@@ -36,10 +36,10 @@ export class OfertaComponent implements OnInit {
     this.ofertaService.getOfertaById(this.route.snapshot.params['id'])
       .then((oferta) => this.oferta = oferta)
 
-    this.route.params.subscribe(
-      (param) => console.log(param.id)),
-      (err) => console.log(err),
-      () => console.log('Fim!')
+    // this.route.params.subscribe(
+    //   (param) => console.log(param.id)),
+    //   (err) => console.log(err),
+    //   () => console.log('Fim!')
   }
 
 }
