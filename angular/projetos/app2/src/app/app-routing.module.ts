@@ -1,16 +1,26 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+import { OndeFicaComponent } from './layout/oferta/onde-fica/onde-fica.component';
+import { ComoUsarComponent } from './layout/oferta/como-usar/como-usar.component';
 import { OfertaComponent } from './layout/oferta/oferta.component';
 import { DiversaoComponent } from './layout/diversao/diversao.component';
 import { RestaurantesComponent } from './layout/restaurantes/restaurantes.component';
 import { NavComponent } from './layout/nav/nav.component';
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', component: NavComponent},
-  { path: 'restaurantes', component: RestaurantesComponent},
-  { path: 'diversao', component: DiversaoComponent},
-  { path: 'oferta', component: NavComponent},
-  { path: 'oferta/:id', component: OfertaComponent},
+  { path: '', component: NavComponent },
+  { path: 'restaurantes', component: RestaurantesComponent },
+  { path: 'diversao', component: DiversaoComponent },
+  { path: 'oferta', component: NavComponent },
+  {
+    path: 'oferta/:id', component: OfertaComponent,
+    children: [
+      { path: '', component: ComoUsarComponent },
+      { path: 'como-usar', component: ComoUsarComponent },
+      { path: 'onde-fica', component: OndeFicaComponent },
+    ]
+  }
 ];
 
 @NgModule({

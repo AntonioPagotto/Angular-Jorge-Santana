@@ -13,6 +13,8 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { DiversaoComponent } from './layout/diversao/diversao.component';
 import { RestaurantesComponent } from './layout/restaurantes/restaurantes.component';
 import { OfertaComponent } from './layout/oferta/oferta.component';
+import { ComoUsarComponent } from './layout/oferta/como-usar/como-usar.component';
+import { OndeFicaComponent } from './layout/oferta/onde-fica/onde-fica.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { OfertaComponent } from './layout/oferta/oferta.component';
     FooterComponent,
     RestaurantesComponent,
     DiversaoComponent,
-    OfertaComponent
+    OfertaComponent,
+    ComoUsarComponent,
+    OndeFicaComponent
   ],
   imports: [
     BrowserModule,
