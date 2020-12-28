@@ -2,7 +2,7 @@ import { OfertasService } from '../../../services/ofertas.service';
 import { Oferta } from '../../../models/oferta.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, Observer } from 'rxjs';
+import { observable, Observable, Observer } from 'rxjs';
 
 @Component({
   selector: 'app-oferta',
@@ -59,13 +59,18 @@ export class OfertaComponent implements OnInit {
         observer.next(1)
         observer.next(5)
         observer.next(3)
+        observer.complete()
+        observer.error('ERRO....')
+        observer.next(55) //essa instrução não será executada pois o erro interrompe a stream de eventos
     })
 
 
 
     //OBSERVABLE - observador
     meuObservableTeste.subscribe(
-      (res) => console.log(res + 10)
+      (res) => console.log(res + 10),
+      (err) => console.log(err),
+      () => console.log('Final da stream')
     )
 
 
