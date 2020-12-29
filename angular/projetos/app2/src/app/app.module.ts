@@ -16,6 +16,9 @@ import { OfertaComponent } from './layout/pages/oferta/oferta.component';
 import { ComoUsarComponent } from './layout/pages/oferta/como-usar/como-usar.component';
 import { OndeFicaComponent } from './layout/pages/oferta/onde-fica/onde-fica.component';
 
+//pipe
+import { DescricaoReduzidaPipe } from './pipes/descricao-reduzida.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +29,8 @@ import { OndeFicaComponent } from './layout/pages/oferta/onde-fica/onde-fica.com
     DiversaoComponent,
     OfertaComponent,
     ComoUsarComponent,
-    OndeFicaComponent
+    OndeFicaComponent,
+    DescricaoReduzidaPipe
   ],
   imports: [
     BrowserModule,
