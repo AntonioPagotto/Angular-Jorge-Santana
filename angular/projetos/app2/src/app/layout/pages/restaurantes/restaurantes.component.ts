@@ -10,8 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestaurantesComponent implements OnInit {
 
-  ofertas: Oferta[]
+  ofertas: Oferta[];
   categoria = "restaurante";
+
+  dataTeste: any = new Date(2020, 12, 29);
 
   constructor(
     private ofertasService: OfertasService
