@@ -21,11 +21,14 @@ export class OfertaComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.ofertaService.getOfertaById(this.route.snapshot.params['id'])
-      .then((oferta) => this.oferta = oferta)
+
+    this.route.params.subscribe((parametros) => {
+      this.ofertaService.getOfertaById(this.route.snapshot.params['id'])
+        .then((oferta) => this.oferta = oferta)
+    });
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
   }
 
 }
