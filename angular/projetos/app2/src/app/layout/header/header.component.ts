@@ -1,8 +1,8 @@
 import { Oferta } from './../../models/oferta.model';
 import { OfertasService } from './../../services/ofertas.service';
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { Observable, Subject, of } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap, catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -13,17 +13,34 @@ import { switchMap } from 'rxjs/operators';
 export class HeaderComponent implements OnInit {
 
   public ofertas: Observable<Oferta[]>
+  public ofertas2: Oferta[];
+
   private subjectPesquisa: Subject<string> = new Subject<string>();
   constructor(
     private ofertasService: OfertasService
   ) { }
 
   ngOnInit() {
-    this.ofertas = this.subjectPesquisa.pipe(switchMap((termo) => {
-      console.log('requisicao HTTP para a api', termo)
-      return this.ofertasService.pesquisaOfertas(termo)
-    }))
-    this.ofertas.subscribe((res)=>console.log(res))
+    this.ofertas = this.subjectPesquisa
+      .pipe(
+        debounceTime(1000), //executa a ação do switchMap apos 1 segundo
+        distinctUntilChanged(), //caso haja duas requisições iguais uma após a outra ele não faz duas requisiçoes...
+        switchMap((termo) => {
+          console.log('requisicao HTTP para a api', termo)
+          //a função trim elimina os espaços da direita e da esquerda, neste caso se o input for espaços, ela os removera
+          if (termo.trim() === '') {
+            return of<Oferta[]>([])
+          }
+          return this.ofertasService.pesquisaOfertas(termo)
+        }),
+        catchError((err) => {
+          console.log(err)
+          return of<Oferta[]>([])
+        })
+      )
+    this.ofertas.subscribe((res) => {
+      this.ofertas2 = res
+    })
   }
 
   pesquisa(termoPesquisa: string) {
